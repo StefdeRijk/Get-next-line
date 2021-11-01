@@ -11,7 +11,7 @@ char	*get_next_line(int fd)
 	static char	*temp_str;
 	char		*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
 		return (0);
 	temp_str = ft_read(fd, temp_str);
 	if (!temp_str)
